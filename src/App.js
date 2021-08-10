@@ -24,9 +24,7 @@ class App extends Component {
   If the user did not type anything, he/she should not be
   allowed to submit.
   */
-  isDisabled = () => {
-    return false;
-  };
+
 
   render() {
     return (
@@ -35,8 +33,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-          <Chat />
-
+          <Chat users={users} messages={messages}/>
+          <Chat users={users} messages ={messages}/>
 
       </div>
     );
