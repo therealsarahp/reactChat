@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Message extends Component{
-    render() {
+
+const Message = (props) =>{
+
         return(
             <li
-                key={this.props.index}
+                key={props.index}
                 className={
-                    this.props.message.username === this.props.user.username ? 'message sender' : 'message recipient'
+                    props.message.username === props.user.username ? 'message sender' : 'message recipient'
                 }
             >
-                <p>{`${this.props.message.username}: ${this.props.message.text}`}</p>
+                <p>{`${props.message.username}: ${props.message.text}`}</p>
             </li>
         )
-    }
-
 }
+
+Message.PropTypes = {
+    user : PropTypes.object.isRequired,
+    message: PropTypes.object.isRequired,
+};
+
 
 export default Message;

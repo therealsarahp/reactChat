@@ -1,39 +1,27 @@
 import React, { Component } from 'react';
 import MessageList from "./MessageList";
+import AddMessage from "./AddMessage";
+import PropTypes from 'prop-types';
 
 
 class Chat extends Component {
 
-    isDisabled = () => {
-        return false;
-    };
-
     render() {
+
         return(
-            <div className="container">
+
 
                 <div className="chat-window">
 
                     <h2>Super Awesome Chat</h2>
-                    <div className="name sender">{this.props.users[0].username}</div>
+                    <div className="name sender">{this.props.user.username}</div>
 
-                    <MessageList user={this.props.users[0]} messages={this.props.messages}/>
+                    <MessageList user={this.props.user} messages={this.props.messages}/>
+                    <AddMessage onAddMessage={this.props.onAddMessage} user={this.props.user}/>
 
-
-                    <div>
-                        <form className="input-group">
-                            <input type="text" className="form-control" placeholder="Enter your message..." />
-                            <div className="input-group-append">
-                                <button className="btn submit-button" disabled={this.isDisabled()}>
-                                    SEND
-                                </button>
-                            </div>
-                        </form>
-                    </div>
 
                 </div>
 
-            </div>
         )
     }
 
